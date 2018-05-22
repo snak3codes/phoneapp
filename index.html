@@ -1,0 +1,286 @@
+<html>
+
+<head>
+    <title>Pixel Art</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Cuprum');
+        @import url('https://fonts.googleapis.com/css?family=Great+Vibes');
+        #art {
+            display: table;
+            border-spacing: 1px;
+            background-color: black;
+            border: 5px solid black;
+        }
+
+        .row {
+            display: table-row;
+        }
+
+        .pixel {
+            display: table-cell;
+            background-color: white;
+            width: 40px;
+            height: 40px;
+        }
+
+        .pen {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            border: 2px solid black;
+        }
+
+        html,
+        body {
+            height: 100%;
+        }
+
+        h1 {
+            font-family: 'Cuprum', sans-serif;
+            -webkit-animation: tracking-in-contract 0.8s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+            animation: tracking-in-contract 0.8s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+
+        }
+
+        h8 {
+            font-family: 'Great Vibes', cursive;
+            -webkit-animation: text-focus-in 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+            animation: text-focus-in 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+        }
+
+        button {
+            margin-left: 110px;
+            background: #000000;
+            background-image: -webkit-linear-gradient(top, #000000, #2B2B2B);
+            background-image: -moz-linear-gradient(top, #000000, #2B2B2B);
+            background-image: -ms-linear-gradient(top, #000000, #2B2B2B);
+            background-image: -o-linear-gradient(top, #000000, #2B2B2B);
+            background-image: linear-gradient(to bottom, #000000, #2B2B2B);
+
+            -webkit-border-radius: 20px;
+            -moz-border-radius: 20px;
+            border-radius: 40px;
+            color: #FFFFFF;
+            font-family: Open Sans;
+            font-size: 20px;
+            font-weight: 100;
+            padding: 5px;
+            box-shadow: 1px 1px 20px 0px #000000;
+            -webkit-box-shadow: 1px 1px 20px 0px #000000;
+            -moz-box-shadow: 1px 1px 20px 0px #000000;
+            text-shadow: 1px 1px 20px #000000;
+            border: solid #337FED 1px;
+            text-decoration: none;
+            display: inline-block;
+            cursor: pointer;
+        }
+
+
+
+        button:hover {
+            background: #1E62D0;
+            background-image: -webkit-linear-gradient(top, #1E62D0, #3D94F6);
+            background-image: -moz-linear-gradient(top, #1E62D0, #3D94F6);
+            background-image: -ms-linear-gradient(top, #1E62D0, #3D94F6);
+            background-image: -o-linear-gradient(top, #1E62D0, #3D94F6);
+            background-image: linear-gradient(to bottom, #1E62D0, #3D94F6);
+            text-decoration: none;
+        }
+
+        .center {
+            -webkit-animation: scale-up-ver-center 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+            animation: scale-up-ver-center 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+        }
+
+        @-webkit-keyframes tracking-in-contract {
+            0% {
+                letter-spacing: 1em;
+                opacity: 0;
+            }
+            40% {
+                opacity: 0.6;
+            }
+            100% {
+                letter-spacing: normal;
+                opacity: 1;
+            }
+        }
+
+        @keyframes tracking-in-contract {
+            0% {
+                letter-spacing: 1em;
+                opacity: 0;
+            }
+            40% {
+                opacity: 0.6;
+            }
+            100% {
+                letter-spacing: normal;
+                opacity: 1;
+            }
+        }
+
+        @-webkit-keyframes scale-up-ver-center {
+            0% {
+                -webkit-transform: scaleY(0.4);
+                transform: scaleY(0.4);
+            }
+            100% {
+                -webkit-transform: scaleY(1);
+                transform: scaleY(1);
+            }
+        }
+
+        @keyframes scale-up-ver-center {
+            0% {
+                -webkit-transform: scaleY(0.4);
+                transform: scaleY(0.4);
+            }
+            100% {
+                -webkit-transform: scaleY(1);
+                transform: scaleY(1);
+            }
+        }
+
+        @-webkit-keyframes text-focus-in {
+            0% {
+                -webkit-filter: blur(12px);
+                filter: blur(12px);
+                opacity: 0;
+            }
+            100% {
+                -webkit-filter: blur(0px);
+                filter: blur(0px);
+                opacity: 1;
+            }
+        }
+
+        @keyframes text-focus-in {
+            0% {
+                -webkit-filter: blur(12px);
+                filter: blur(12px);
+                opacity: 0;
+            }
+            100% {
+                -webkit-filter: blur(0px);
+                filter: blur(0px);
+                opacity: 1;
+            }
+        }
+    </style>
+    <script>
+        var penColour = 'black';
+
+        function setPenColour(pen) {
+            penColour = pen;
+        }
+
+        function setPixelColour(pixel) {
+            pixel.style.backgroundColor = penColour;
+        }
+    </script>
+</head>
+
+<body>
+    <h1>Pixel Art 👨‍🎨</h1>
+    <h8>by Jaskaran Singh</h8>
+    <br>
+    <br>
+    <div class="center">
+        <div class="pen" style="background-color:red;" onclick="setPenColour('red')"></div>
+        <div class="pen" style="background-color:chartreuse;" onclick="setPenColour('chartreuse')"></div>
+        <div class="pen" style="background-color:blue;" onclick="setPenColour('blue')"></div>
+        <div class="pen" style="background-color:white;" onclick="setPenColour('white')"></div>
+        <div class="pen" style="background-color:black;" onclick="setPenColour('black')"></div>
+
+        <div id="art">
+            <div class="row">
+                <div class="pixel" onclick="setPixelColour(this)"></div>
+                <div class="pixel" onclick="setPixelColour(this)"></div>
+                <div class="pixel" onclick="setPixelColour(this)"></div>
+                <div class="pixel" onclick="setPixelColour(this)"></div>
+                <div class="pixel" onclick="setPixelColour(this)"></div>
+                <div class="pixel" onclick="setPixelColour(this)"></div>
+                <div class="pixel" onclick="setPixelColour(this)"></div>
+                <div class="pixel" onclick="setPixelColour(this)"></div>
+            </div>
+            <div class="row">
+                <div class="pixel" onclick="setPixelColour(this)"></div>
+                <div class="pixel" onclick="setPixelColour(this)"></div>
+                <div class="pixel" onclick="setPixelColour(this)"></div>
+                <div class="pixel" onclick="setPixelColour(this)"></div>
+                <div class="pixel" onclick="setPixelColour(this)"></div>
+                <div class="pixel" onclick="setPixelColour(this)"></div>
+                <div class="pixel" onclick="setPixelColour(this)"></div>
+                <div class="pixel" onclick="setPixelColour(this)"></div>
+            </div>
+            <div class="row">
+                <div class="pixel" onclick="setPixelColour(this)"></div>
+                <div class="pixel" onclick="setPixelColour(this)"></div>
+                <div class="pixel" onclick="setPixelColour(this)"></div>
+                <div class="pixel" onclick="setPixelColour(this)"></div>
+                <div class="pixel" onclick="setPixelColour(this)"></div>
+                <div class="pixel" onclick="setPixelColour(this)"></div>
+                <div class="pixel" onclick="setPixelColour(this)"></div>
+                <div class="pixel" onclick="setPixelColour(this)"></div>
+            </div>
+            <div class="row">
+                <div class="pixel" onclick="setPixelColour(this)"></div>
+                <div class="pixel" onclick="setPixelColour(this)"></div>
+                <div class="pixel" onclick="setPixelColour(this)"></div>
+                <div class="pixel" onclick="setPixelColour(this)"></div>
+                <div class="pixel" onclick="setPixelColour(this)"></div>
+                <div class="pixel" onclick="setPixelColour(this)"></div>
+                <div class="pixel" onclick="setPixelColour(this)"></div>
+                <div class="pixel" onclick="setPixelColour(this)"></div>
+            </div>
+            <div class="row">
+                <div class="pixel" onclick="setPixelColour(this)"></div>
+                <div class="pixel" onclick="setPixelColour(this)"></div>
+                <div class="pixel" onclick="setPixelColour(this)"></div>
+                <div class="pixel" onclick="setPixelColour(this)"></div>
+                <div class="pixel" onclick="setPixelColour(this)"></div>
+                <div class="pixel" onclick="setPixelColour(this)"></div>
+                <div class="pixel" onclick="setPixelColour(this)"></div>
+                <div class="pixel" onclick="setPixelColour(this)"></div>
+            </div>
+            <div class="row">
+                <div class="pixel" onclick="setPixelColour(this)"></div>
+                <div class="pixel" onclick="setPixelColour(this)"></div>
+                <div class="pixel" onclick="setPixelColour(this)"></div>
+                <div class="pixel" onclick="setPixelColour(this)"></div>
+                <div class="pixel" onclick="setPixelColour(this)"></div>
+                <div class="pixel" onclick="setPixelColour(this)"></div>
+                <div class="pixel" onclick="setPixelColour(this)"></div>
+                <div class="pixel" onclick="setPixelColour(this)"></div>
+            </div>
+            <div class="row">
+                <div class="pixel" onclick="setPixelColour(this)"></div>
+                <div class="pixel" onclick="setPixelColour(this)"></div>
+                <div class="pixel" onclick="setPixelColour(this)"></div>
+                <div class="pixel" onclick="setPixelColour(this)"></div>
+                <div class="pixel" onclick="setPixelColour(this)"></div>
+                <div class="pixel" onclick="setPixelColour(this)"></div>
+                <div class="pixel" onclick="setPixelColour(this)"></div>
+                <div class="pixel" onclick="setPixelColour(this)"></div>
+            </div>
+            <div class="row">
+                <div class="pixel" onclick="setPixelColour(this)"></div>
+                <div class="pixel" onclick="setPixelColour(this)"></div>
+                <div class="pixel" onclick="setPixelColour(this)"></div>
+                <div class="pixel" onclick="setPixelColour(this)"></div>
+                <div class="pixel" onclick="setPixelColour(this)"></div>
+                <div class="pixel" onclick="setPixelColour(this)"></div>
+                <div class="pixel" onclick="setPixelColour(this)"></div>
+                <div class="pixel" onclick="setPixelColour(this)"></div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <button>MENU</button>
+</body>
+
+</html>
